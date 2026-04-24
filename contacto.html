@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Budy Global Corp</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all .8s ease; }
+    .fade-up.active { opacity: 1; transform: translateY(0); }
+    .menu { transform: translateX(110%); transition: transform .35s ease; }
+    .menu.active { transform: translateX(0); }
+    .glass { background: rgba(15, 23, 42, .55); backdrop-filter: blur(14px); }
+    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset; }
+    .card { box-shadow: 0 30px 90px rgba(0,0,0,.35); }
+    .menu-backdrop { opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+    .menu-backdrop.active { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+
+<body class="bg-[#0b1220] text-white selection:bg-white selection:text-black">
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50 glass ring-soft border-b border-white/10">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center p-5">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-soft">BG</span>
+        <span class="text-lg font-semibold tracking-wide">Budy Global Corp</span>
+      </a>
+      <button id="openMenu" class="ml-auto border border-white/15 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        Menú
+      </button>
+    </nav>
+  </header>
+
+  <!-- MENU BACKDROP -->
+  <div id="menuBackdrop" class="menu-backdrop fixed inset-0 bg-black/50 z-40" aria-hidden="true"></div>
+
+  <!-- MENU -->
+  <aside id="menu" class="menu fixed top-0 right-0 w-[22rem] max-w-[92vw] h-full bg-white text-black z-50 p-7 flex flex-col gap-6 shadow-[0_30px_120px_rgba(0,0,0,.55)] rounded-l-3xl">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="text-xs uppercase tracking-[0.22em] text-black/50">Menú</div>
+        <div class="font-semibold text-lg leading-tight">Budy Global Corp</div>
+      </div>
+      <button id="closeMenu" class="text-2xl leading-none hover:opacity-70 transition" aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="mt-2 grid gap-2">
+      <a href="index.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Inicio</a>
+      <a href="apple.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Apple</a>
+      <a href="samsung.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Samsung</a>
+      <a href="perfumes.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Perfumes</a>
+      <a href="contacto.html" class="px-4 py-3 rounded-2xl bg-black text-white font-medium">Contacto</a>
+      <a href="#form" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Ir al formulario</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-black/10 text-sm text-black/60">
+      <div class="font-medium text-black/80">Respuesta rápida</div>
+      <div>Dejanos tu consulta y te contestamos.</div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="relative pt-28 md:pt-32 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80"
+        alt="Contacto premium"
+        class="w-full h-full object-cover opacity-55"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(34,197,94,.18),transparent_45%),radial-gradient(circle_at_80%_40%,rgba(59,130,246,.14),transparent_45%)]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-7 fade-up">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/70">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Contacto
+          </div>
+          <h1 class="mt-4 text-4xl md:text-6xl font-semibold leading-tight">
+            Consultas rápidas, <span class="text-white/70">respuestas claras.</span>
+          </h1>
+          <p class="mt-5 text-white/70 max-w-2xl">
+            Pedí disponibilidad, precios actualizados o recomendaciones. Si ya sabés qué querés, indicá modelo, color y capacidad.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#form" class="px-6 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.02] transition card text-center">
+              Escribir consulta
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM + INFO -->
+  <section id="form" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 fade-up">
+          <div class="rounded-3xl bg-white/5 ring-soft p-6 md:p-8 card">
+            <div class="flex items-end justify-between gap-6">
+              <div>
+                <h2 class="text-2xl md:text-3xl font-semibold">Enviar consulta</h2>
+                <p class="mt-2 text-white/60">Simulamos el envío con una animación y confirmación (no se envía a un servidor).</p>
+              </div>
+              <div class="hidden md:block text-sm text-white/60" id="draftHint"></div>
+            </div>
+
+            <form id="contactForm" class="mt-8 grid sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm text-white/70">Nombre</span>
+                <input id="name" class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="block">
+                <span class="text-sm text-white/70">Ciudad / Zona</span>
+                <input id="city" class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40" placeholder="Ej: CABA, Córdoba..." />
+              </label>
+
+              <label class="block sm:col-span-2">
+                <span class="text-sm text-white/70">¿Qué te interesa?</span>
+                <div class="mt-2 grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <button type="button" data-topic="Apple" class="topicBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Apple</button>
+                  <button type="button" data-topic="Samsung" class="topicBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Samsung</button>
+                  <button type="button" data-topic="Perfumes" class="topicBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Perfumes</button>
+                  <button type="button" data-topic="Otro" class="topicBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Otro</button>
+                </div>
+                <input type="hidden" id="topic" value="Apple" />
+              </label>
+
+              <label class="block sm:col-span-2">
+                <span class="text-sm text-white/70">Producto / Detalles</span>
+                <input id="product" class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40" placeholder="Ej: iPhone 15 Pro 256GB titanio / Galaxy S24 Ultra / Bleu de Chanel EDP 100ml" required />
+              </label>
+
+              <label class="block">
+                <span class="text-sm text-white/70">Presupuesto (opcional)</span>
+                <input id="budget" class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40" placeholder="Ej: hasta $1.300" />
+              </label>
+
+              <label class="block">
+                <span class="text-sm text-white/70">Preferencia de contacto</span>
+                <select id="pref" class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40">
+                  <option>Email</option>
+                  <option>Llamada</option>
+                  <option>Mensaje</option>
+                </select>
+              </label>
+
+              <label class="block sm:col-span-2">
+                <span class="text-sm text-white/70">Mensaje</span>
+                <textarea id="message" rows="4" class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40" placeholder="Ej: ¿Tenés stock? ¿Cuánto tarda el envío? ¿Qué opciones recomendás?"></textarea>
+              </label>
+
+              <div class="sm:col-span-2 flex flex-col sm:flex-row gap-3 pt-2">
+                <button id="submitBtn" type="submit" class="flex-1 px-6 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.01] transition card">
+                  Enviar consulta
+                </button>
+                <button id="copyBtn" type="button" class="px-6 py-3 rounded-xl bg-white/10 ring-soft hover:bg-white/15 transition">
+                  Copiar mensaje
+                </button>
+              </div>
+
+              <div class="sm:col-span-2 text-xs text-white/50">
+                Al enviar, verás una confirmación de envío exitoso.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 fade-up">
+          <div class="rounded-3xl bg-white/5 ring-soft p-6 md:p-8 card">
+            <h3 class="text-xl font-semibold">Datos de contacto</h3>
+            <p class="mt-2 text-white/60">Podés escribirnos por email o usar el formulario para armar el mensaje automáticamente.</p>
+
+            <div class="mt-6 grid gap-3 text-sm">
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="text-white/80">Correo</div>
+                <div class="mt-1 font-semibold">budyglobalcorp@gmail.com</div>
+              </div>
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="text-white/80">Telefono</div>
+                <div class="mt-1 font-semibold">+1 (786) 935-2451</div>
+              </div>
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="text-white/80">Dirección</div>
+                <div class="mt-1 font-semibold">1717 N Bayshore Dr, 1939</div>
+                <div class="text-white/70">Miami, FL 33132</div>
+              </div>
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="text-white/80">Entrega</div>
+                <div class="mt-1 text-white/70">Coordinación y envíos con seguimiento.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEND ANIMATION / TOAST -->
+  <div id="sendToast" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative h-full w-full flex items-center justify-center p-6">
+      <div class="w-full max-w-md rounded-3xl bg-white text-black p-7 shadow-[0_30px_120px_rgba(0,0,0,.55)]">
+        <div class="flex items-center justify-between">
+          <div class="text-xs uppercase tracking-[0.22em] text-black/50">Budy Global Corp</div>
+          <button id="closeToast" class="text-xl leading-none hover:opacity-70 transition" aria-label="Cerrar">✕</button>
+        </div>
+
+        <div class="mt-5 flex items-center gap-4">
+          <div id="toastIcon" class="h-12 w-12 rounded-2xl bg-black/5 flex items-center justify-center">
+            <div id="spinner" class="h-6 w-6 rounded-full border-2 border-black/20 border-t-black animate-spin"></div>
+            <svg id="check" class="hidden h-7 w-7" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div id="toastTitle" class="text-lg font-semibold">Enviando consulta…</div>
+            <div id="toastDesc" class="mt-1 text-black/60 text-sm">Estamos preparando tu solicitud.</div>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-3 text-sm">
+          <button id="toastPrimary" class="col-span-2 px-5 py-3 rounded-2xl bg-black text-white font-medium hover:opacity-90 transition" type="button">
+            Listo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="fade-up">
+        <h2 class="text-2xl md:text-3xl font-semibold">Preguntas frecuentes</h2>
+        <p class="mt-2 text-white/60">Respuestas cortas para que compres con confianza.</p>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-5">
+        <details class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <summary class="cursor-pointer text-lg font-semibold">¿Los precios son finales?</summary>
+          <p class="mt-3 text-white/65">Son orientativos. Confirmamos precio final al momento de la compra según stock y versión.</p>
+        </details>
+        <details class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <summary class="cursor-pointer text-lg font-semibold">¿Cómo consulto una variante exacta?</summary>
+          <p class="mt-3 text-white/65">Indicá modelo + almacenamiento/color (o ml/concentración en perfumes). Con eso cotizamos más rápido.</p>
+        </details>
+        <details class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <summary class="cursor-pointer text-lg font-semibold">¿Hacen envíos?</summary>
+          <p class="mt-3 text-white/65">Sí. Coordinamos por email y te damos seguimiento según tu zona.</p>
+        </details>
+        <details class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <summary class="cursor-pointer text-lg font-semibold">¿Puedo pedir recomendaciones?</summary>
+          <p class="mt-3 text-white/65">Claro. En perfumes, contanos si lo querés fresco/dulce/amaderado y para qué ocasión.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-white/45 text-sm border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>© 2026 Budy Global Corp</div>
+        <div class="flex items-center gap-5">
+          <a class="hover:text-white transition" href="index.html">Inicio</a>
+          <a class="hover:text-white transition" href="apple.html">Apple</a>
+          <a class="hover:text-white transition" href="samsung.html">Samsung</a>
+          <a class="hover:text-white transition" href="perfumes.html">Perfumes</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú lateral
+    const menu = document.getElementById("menu");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const backdrop = document.getElementById("menuBackdrop");
+    const body = document.body;
+
+    function openNav() {
+      if (!menu) return;
+      menu.classList.add("active");
+      if (backdrop) backdrop.classList.add("active");
+      body.classList.add("overflow-hidden");
+      if (openMenu) openMenu.setAttribute("aria-expanded", "true");
+    }
+
+    function closeNav() {
+      if (!menu) return;
+      menu.classList.remove("active");
+      if (backdrop) backdrop.classList.remove("active");
+      body.classList.remove("overflow-hidden");
+      if (openMenu) openMenu.setAttribute("aria-expanded", "false");
+    }
+
+    if (openMenu && closeMenu && menu) {
+      openMenu.onclick = openNav;
+      closeMenu.onclick = closeNav;
+      if (backdrop) backdrop.addEventListener("click", closeNav);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    }
+
+    // Animación fade-up
+    const elements = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.12 }
+    );
+    elements.forEach((el) => observer.observe(el));
+
+    function makeDraft() {
+      const name = (document.getElementById("name")?.value || "").trim();
+      const city = (document.getElementById("city")?.value || "").trim();
+      const topic = (document.getElementById("topic")?.value || "Apple").trim();
+      const product = (document.getElementById("product")?.value || "").trim();
+      const budget = (document.getElementById("budget")?.value || "").trim();
+      const pref = (document.getElementById("pref")?.value || "Email").trim();
+      const message = (document.getElementById("message")?.value || "").trim();
+
+      const lines = [
+        "Hola Budy Global Corp, ¿cómo estás?",
+        "",
+        name ? `Nombre: ${name}` : null,
+        city ? `Ciudad/Zona: ${city}` : null,
+        `Interés: ${topic}`,
+        product ? `Producto: ${product}` : null,
+        budget ? `Presupuesto: ${budget}` : null,
+        `Preferencia: ${pref}`,
+        message ? "" : null,
+        message ? `Mensaje: ${message}` : null,
+        "",
+        "Gracias."
+      ].filter(Boolean);
+
+      return lines.join("\n");
+    }
+
+    function syncDraftHint() {
+      const hint = document.getElementById("draftHint");
+      if (hint) hint.textContent = "Mensaje listo para copiar";
+    }
+    syncDraftHint();
+    ["name","city","topic","product","budget","pref","message"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("input", syncDraftHint);
+      if (el) el.addEventListener("change", syncDraftHint);
+    });
+
+    // Topics
+    const topicBtns = Array.from(document.querySelectorAll(".topicBtn"));
+    const topicInput = document.getElementById("topic");
+    function setTopic(t) {
+      if (topicInput) topicInput.value = t;
+      topicBtns.forEach((b) => b.classList.remove("bg-white", "text-black"));
+      topicBtns.forEach((b) => b.classList.add("bg-white/10"));
+      const active = topicBtns.find((b) => b.getAttribute("data-topic") === t);
+      if (active) {
+        active.classList.add("bg-white", "text-black");
+        active.classList.remove("bg-white/10");
+      }
+      syncDraftHint();
+    }
+    topicBtns.forEach((b) => b.addEventListener("click", () => setTopic(b.getAttribute("data-topic") || "Apple")));
+    setTopic("Apple");
+
+    // Submit -> animación + confirmación (simulada)
+    const form = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const toast = document.getElementById("sendToast");
+    const closeToast = document.getElementById("closeToast");
+    const toastPrimary = document.getElementById("toastPrimary");
+    const spinner = document.getElementById("spinner");
+    const check = document.getElementById("check");
+    const toastTitle = document.getElementById("toastTitle");
+    const toastDesc = document.getElementById("toastDesc");
+    let toastTimer1 = null;
+    let toastTimer2 = null;
+
+    function openToast() {
+      if (!toast) return;
+      toast.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function resetToast() {
+      if (spinner) spinner.classList.remove("hidden");
+      if (check) check.classList.add("hidden");
+      if (toastTitle) toastTitle.textContent = "Enviando consulta…";
+      if (toastDesc) toastDesc.textContent = "Estamos preparando tu solicitud.";
+      if (toastPrimary) toastPrimary.textContent = "Listo";
+    }
+
+    function closeToastUi() {
+      if (!toast) return;
+      toast.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+      if (toastTimer1) window.clearTimeout(toastTimer1);
+      if (toastTimer2) window.clearTimeout(toastTimer2);
+      toastTimer1 = null;
+      toastTimer2 = null;
+      resetToast();
+    }
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        resetToast();
+        openToast();
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+        }
+
+        toastTimer1 = window.setTimeout(() => {
+          if (spinner) spinner.classList.add("hidden");
+          if (check) check.classList.remove("hidden");
+          if (toastTitle) toastTitle.textContent = "Consulta enviada";
+          if (toastDesc) toastDesc.textContent = "Se ha enviado con éxito.";
+        }, 1100);
+
+        toastTimer2 = window.setTimeout(() => {
+          closeToastUi();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("opacity-70", "cursor-not-allowed");
+          }
+        }, 2600);
+      });
+    }
+
+    if (closeToast) closeToast.addEventListener("click", closeToastUi);
+    if (toastPrimary) toastPrimary.addEventListener("click", closeToastUi);
+
+    // Copiar mensaje
+    const copyBtn = document.getElementById("copyBtn");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", async () => {
+        const draft = makeDraft();
+        try {
+          await navigator.clipboard.writeText(draft);
+          copyBtn.textContent = "Copiado";
+          setTimeout(() => (copyBtn.textContent = "Copiar mensaje"), 1400);
+        } catch {
+          // fallback
+          const ta = document.createElement("textarea");
+          ta.value = draft;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+          copyBtn.textContent = "Copiado";
+          setTimeout(() => (copyBtn.textContent = "Copiar mensaje"), 1400);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

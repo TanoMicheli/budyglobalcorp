@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfumes | Budy Global Corp</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all .8s ease; }
+    .fade-up.active { opacity: 1; transform: translateY(0); }
+    .menu { transform: translateX(110%); transition: transform .35s ease; }
+    .menu.active { transform: translateX(0); }
+    .glass { background: rgba(15, 23, 42, .55); backdrop-filter: blur(14px); }
+    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset; }
+    .card { box-shadow: 0 30px 90px rgba(0,0,0,.35); }
+    .menu-backdrop { opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+    .menu-backdrop.active { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+
+<body class="bg-[#0b1220] text-white selection:bg-white selection:text-black">
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50 glass ring-soft border-b border-white/10">
+    <nav class="max-w-7xl mx-auto flex justify-between items-center p-5">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-soft">BG</span>
+        <span class="text-lg font-semibold tracking-wide">Budy Global Corp</span>
+      </a>
+      <button id="openMenu" class="ml-auto border border-white/15 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        Menú
+      </button>
+    </nav>
+  </header>
+
+  <!-- MENU BACKDROP -->
+  <div id="menuBackdrop" class="menu-backdrop fixed inset-0 bg-black/50 z-40" aria-hidden="true"></div>
+
+  <!-- MENU -->
+  <aside id="menu" class="menu fixed top-0 right-0 w-[22rem] max-w-[92vw] h-full bg-white text-black z-50 p-7 flex flex-col gap-6 shadow-[0_30px_120px_rgba(0,0,0,.55)] rounded-l-3xl">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="text-xs uppercase tracking-[0.22em] text-black/50">Menú</div>
+        <div class="font-semibold text-lg leading-tight">Budy Global Corp</div>
+      </div>
+      <button id="closeMenu" class="text-2xl leading-none hover:opacity-70 transition" aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="mt-2 grid gap-2">
+      <a href="index.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Inicio</a>
+      <a href="apple.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Apple</a>
+      <a href="samsung.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Samsung</a>
+      <a href="perfumes.html" class="px-4 py-3 rounded-2xl bg-black text-white font-medium">Perfumes</a>
+      <a href="contacto.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Contacto</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-black/10 text-sm text-black/60">
+      <div class="font-medium text-black/80">Perfumería</div>
+      <div>Consultá concentraciones y mililitros.</div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="relative pt-24 md:pt-28 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?auto=format&fit=crop&w=2400&q=80"
+        alt="Perfumes premium"
+        class="w-full h-full object-cover opacity-55"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(245,158,11,.20),transparent_45%),radial-gradient(circle_at_75%_35%,rgba(236,72,153,.14),transparent_45%)]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-7 fade-up">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/70">
+            <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+            Fragancias Selection
+          </div>
+          <h1 class="mt-4 text-4xl md:text-6xl font-semibold leading-tight">
+            Fragancias que se sienten <span class="text-white/70">como firma personal.</span>
+          </h1>
+          <p class="mt-5 text-white/70 max-w-2xl">
+            Perfumes icónicos, notas reconocibles y una selección premium para regalo o uso diario. Elegí por familia olfativa.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#catalogo" class="px-6 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.02] transition card">
+              Ver fragancias
+            </a>
+            <a href="contacto.html" class="px-6 py-3 rounded-xl bg-white/10 ring-soft hover:bg-white/15 transition">
+              Consultar por stock
+            </a>
+          </div>
+          <div class="mt-10 grid grid-cols-3 max-w-lg gap-4 text-sm">
+            <div class="rounded-2xl bg-white/5 ring-soft p-4">
+              <div class="text-white font-semibold">Duración</div>
+              <div class="text-white/60">EDT / EDP</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-soft p-4">
+              <div class="text-white font-semibold">Familias</div>
+              <div class="text-white/60">Amaderadas, etc.</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-soft p-4">
+              <div class="text-white font-semibold">Regalos</div>
+              <div class="text-white/60">Presentación premium</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 fade-up">
+          <div class="rounded-3xl bg-white/5 ring-soft p-6 card">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-white/60">Top ventas</div>
+                <div class="text-xl font-semibold">Sun di Gioia - Giorgio Armani</div>
+              </div>
+              <div class="text-right">
+                <div class="text-sm text-white/60">Desde</div>
+                <div class="text-xl font-semibold">$200</div>
+              </div>
+            </div>
+            <img
+              class="mt-6 w-full rounded-2xl ring-soft"
+              alt="Perfume"
+              src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=1600&q=80"
+            />
+            <div class="mt-6 grid grid-cols-3 gap-3 text-xs text-white/70">
+              <div class="rounded-xl bg-white/5 ring-soft p-3 text-center">Amaderado</div>
+              <div class="rounded-xl bg-white/5 ring-soft p-3 text-center">Fresco</div>
+              <div class="rounded-xl bg-white/5 ring-soft p-3 text-center">Versátil</div>
+            </div>
+            <a href="contacto.html" class="mt-6 block text-center px-5 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.01] transition">
+              Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <div class="flex items-start gap-4">
+            <div class="h-11 w-11 rounded-2xl bg-white/10 ring-soft flex items-center justify-center text-white/80">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+                <path d="M8 4h8v6H8V4Z" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M7 10h10l-1 10H8L7 10Z" stroke="currentColor" stroke-width="2" opacity=".8"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold">Selección icónica</div>
+              <div class="mt-1 text-white/60 text-sm">Clásicos y tendencias con notas reconocibles.</div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <div class="flex items-start gap-4">
+            <div class="h-11 w-11 rounded-2xl bg-white/10 ring-soft flex items-center justify-center text-white/80">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+                <path d="M12 3l7 4v5c0 5-3 8-7 9-4-1-7-4-7-9V7l7-4Z" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold">Autenticidad</div>
+              <div class="mt-1 text-white/60 text-sm">Te asesoramos en ml y concentración (EDT/EDP).</div>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <div class="flex items-start gap-4">
+            <div class="h-11 w-11 rounded-2xl bg-white/10 ring-soft flex items-center justify-center text-white/80">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+                <path d="M4 12c3-4 13-4 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+                <path d="M7 14c2-2 8-2 10 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+                <path d="M10 16c1-.8 3-.8 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+              </svg>
+            </div>
+            <div>
+              <div class="font-semibold">Recomendación</div>
+              <div class="mt-1 text-white/60 text-sm">Elegí por familia: fresco, dulce o amaderado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="rounded-3xl bg-white/5 ring-soft p-5 md:p-6 fade-up">
+        <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+          <div class="flex-1">
+            <div class="text-sm text-white/60">Buscar</div>
+            <input
+              id="q"
+              class="mt-2 w-full rounded-2xl bg-black/40 ring-soft px-4 py-3 outline-none focus:ring-2 focus:ring-white/40"
+              placeholder="Sauvage, Chanel, Paco Rabanne..."
+              autocomplete="off"
+            />
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:w-[680px]">
+            <button data-filter="all" class="filterBtn rounded-2xl bg-white text-black px-4 py-3 text-sm font-medium">Todo</button>
+            <button data-filter="fresh" class="filterBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Frescos</button>
+            <button data-filter="woody" class="filterBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Amaderados</button>
+            <button data-filter="sweet" class="filterBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Dulces</button>
+            <button data-filter="luxury" class="filterBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Lujo</button>
+            <button data-filter="daily" class="filterBtn rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm hover:bg-white/15 transition">Diario</button>
+            <a href="contacto.html" class="rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm text-center hover:bg-white/15 transition">Cotizar</a>
+            <a href="index.html#perfumes" class="rounded-2xl bg-white/10 ring-soft px-4 py-3 text-sm text-center hover:bg-white/15 transition">Ver en Inicio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGO -->
+  <section id="catalogo" class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-end justify-between gap-6">
+        <div class="fade-up">
+          <h2 class="text-3xl md:text-4xl font-semibold">Catálogo de perfumes</h2>
+          <p class="mt-2 text-white/60">Familia olfativa, ocasión y precios de referencia.</p>
+        </div>
+        <div class="hidden md:block text-sm text-white/60 fade-up" id="resultsMeta"></div>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article data-kind="woody" class="product fade-up rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition">
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold">Dior Sauvage</h3>
+                <p class="text-sm text-white/60 mt-1">100ml · EDP</p>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-white/60">Desde</div>
+                <div class="text-lg font-semibold">$150</div>
+              </div>
+            </div>
+          </div>
+          <img class="w-full h-56 object-cover" alt="Dior Sauvage" src="https://d3cdlnm7te7ky2.cloudfront.net/media/catalog/product/cache/1f1b8d9a1b49678555bea203c2f52e39/1/2/126844a.jpg" />
+          <div class="p-6 pt-5">
+            <div class="flex flex-wrap gap-2 text-xs text-white/70">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Amaderado</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Versátil</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Noche</span>
+            </div>
+            <a href="contacto.html" class="mt-5 inline-flex items-center justify-center w-full px-4 py-3 rounded-2xl bg-white text-black font-medium hover:scale-[1.01] transition">Consultar</a>
+          </div>
+        </article>
+
+        <article data-kind="fresh" class="product fade-up rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition">
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold">Bleu de Chanel</h3>
+                <p class="text-sm text-white/60 mt-1">EDP · 100ml</p>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-white/60">Desde</div>
+                <div class="text-lg font-semibold">$180</div>
+              </div>
+            </div>
+          </div>
+          <img class="w-full h-56 object-cover" alt="Bleu de Chanel" src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1600&q=80" />
+          <div class="p-6 pt-5">
+            <div class="flex flex-wrap gap-2 text-xs text-white/70">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Fresco</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Lujo</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Diario</span>
+            </div>
+            <a href="contacto.html" class="mt-5 inline-flex items-center justify-center w-full px-4 py-3 rounded-2xl bg-white text-black font-medium hover:scale-[1.01] transition">Consultar</a>
+          </div>
+        </article>
+
+        <article data-kind="sweet" class="product fade-up rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition">
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold">One Million</h3>
+                <p class="text-sm text-white/60 mt-1">Paco Rabanne</p>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-white/60">Desde</div>
+                <div class="text-lg font-semibold">$140</div>
+              </div>
+            </div>
+          </div>
+          <img class="w-full h-56 object-cover" alt="One Million" src="https://baproar.vtexassets.com/arquivos/ids/211624-800-auto?v=638144152259770000&width=800&height=auto&aspect=true" />
+          <div class="p-6 pt-5">
+            <div class="flex flex-wrap gap-2 text-xs text-white/70">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Dulce</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Noche</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Intenso</span>
+            </div>
+            <a href="contacto.html" class="mt-5 inline-flex items-center justify-center w-full px-4 py-3 rounded-2xl bg-white text-black font-medium hover:scale-[1.01] transition">Consultar</a>
+          </div>
+        </article>
+
+        <article data-kind="luxury" class="product fade-up rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition">
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold">Tom Ford</h3>
+                <p class="text-sm text-white/60 mt-1">Línea exclusiva</p>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-white/60">Desde</div>
+                <div class="text-lg font-semibold">$300</div>
+              </div>
+            </div>
+          </div>
+          <img class="w-full h-56 object-cover" alt="Tom Ford" src="https://bluemercury.com/cdn/shop/files/global_images-p888066136914-2.jpg?v=1775752065&width=1500" />
+          <div class="p-6 pt-5">
+            <div class="flex flex-wrap gap-2 text-xs text-white/70">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Lujo</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Proyección</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Firma</span>
+            </div>
+            <a href="contacto.html" class="mt-5 inline-flex items-center justify-center w-full px-4 py-3 rounded-2xl bg-white text-black font-medium hover:scale-[1.01] transition">Consultar</a>
+          </div>
+        </article>
+
+        <article data-kind="daily" class="product fade-up rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition">
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold">Acqua di Gio</h3>
+                <p class="text-sm text-white/60 mt-1">Fresco · Diario</p>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-white/60">Desde</div>
+                <div class="text-lg font-semibold">$200</div>
+              </div>
+            </div>
+          </div>
+          <img class="w-full h-56 object-cover" alt="Acqua di Gio" src="https://juleriaque.vtexassets.com/arquivos/ids/236124/1005986.jpg?v=638580654673900000" />
+          <div class="p-6 pt-5">
+            <div class="flex flex-wrap gap-2 text-xs text-white/70">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Diario</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Fresco</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Ligero</span>
+            </div>
+            <a href="contacto.html" class="mt-5 inline-flex items-center justify-center w-full px-4 py-3 rounded-2xl bg-white text-black font-medium hover:scale-[1.01] transition">Consultar</a>
+          </div>
+        </article>
+
+        <article data-kind="woody" class="product fade-up rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition">
+          <div class="p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold">N°5 Chanel</h3>
+                <p class="text-sm text-white/60 mt-1">EDP · Versátil</p>
+              </div>
+              <div class="text-right">
+                <div class="text-xs text-white/60">Desde</div>
+                <div class="text-lg font-semibold">$165</div>
+              </div>
+            </div>
+          </div>
+          <img class="w-full h-56 object-cover" alt="YSL Y" src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1600&q=80" />
+          <div class="p-6 pt-5">
+            <div class="flex flex-wrap gap-2 text-xs text-white/70">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Amaderado</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Diario</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Elegante</span>
+            </div>
+            <a href="contacto.html" class="mt-5 inline-flex items-center justify-center w-full px-4 py-3 rounded-2xl bg-white text-black font-medium hover:scale-[1.01] transition">Consultar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-amber-500/20 via-white/6 to-pink-500/10 ring-soft p-8 md:p-10 fade-up card">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-8">
+            <h3 class="text-2xl md:text-3xl font-semibold">Te ayudamos a elegir por notas y ocasión</h3>
+            <p class="mt-2 text-white/65 max-w-2xl">
+              Decinos si lo querés fresco, dulce o amaderado; para día o noche; y el presupuesto. Te recomendamos opciones.
+            </p>
+          </div>
+          <div class="md:col-span-4 flex md:justify-end">
+            <a href="contacto.html" class="w-full md:w-auto px-7 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.02] transition text-center">
+              Pedir recomendación
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-white/45 text-sm border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>© 2026 Budy Global Corp</div>
+        <div class="flex items-center gap-5">
+          <a class="hover:text-white transition" href="index.html">Inicio</a>
+          <a class="hover:text-white transition" href="contacto.html">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú lateral
+    const menu = document.getElementById("menu");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const backdrop = document.getElementById("menuBackdrop");
+    const body = document.body;
+
+    function openNav() {
+      if (!menu) return;
+      menu.classList.add("active");
+      if (backdrop) backdrop.classList.add("active");
+      body.classList.add("overflow-hidden");
+      if (openMenu) openMenu.setAttribute("aria-expanded", "true");
+    }
+
+    function closeNav() {
+      if (!menu) return;
+      menu.classList.remove("active");
+      if (backdrop) backdrop.classList.remove("active");
+      body.classList.remove("overflow-hidden");
+      if (openMenu) openMenu.setAttribute("aria-expanded", "false");
+    }
+
+    if (openMenu && closeMenu && menu) {
+      openMenu.onclick = openNav;
+      closeMenu.onclick = closeNav;
+      if (backdrop) backdrop.addEventListener("click", closeNav);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    }
+
+    // Animación fade-up
+    const elements = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.12 }
+    );
+    elements.forEach((el) => observer.observe(el));
+
+    // Filtros + búsqueda
+    const q = document.getElementById("q");
+    const filterBtns = Array.from(document.querySelectorAll(".filterBtn"));
+    const products = Array.from(document.querySelectorAll(".product"));
+    const resultsMeta = document.getElementById("resultsMeta");
+    let activeKind = "all";
+
+    function normalize(s) {
+      return (s || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function render() {
+      const query = normalize(q ? q.value : "");
+      let shown = 0;
+      products.forEach((card) => {
+        const kind = card.getAttribute("data-kind") || "";
+        const text = normalize(card.innerText);
+        const okKind = activeKind === "all" ? true : kind === activeKind;
+        const okQuery = !query ? true : text.includes(query);
+        const visible = okKind && okQuery;
+        card.style.display = visible ? "" : "none";
+        if (visible) shown += 1;
+      });
+      if (resultsMeta) resultsMeta.textContent = `${shown} resultado${shown === 1 ? "" : "s"} · filtro: ${activeKind === "all" ? "todo" : activeKind}`;
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeKind = btn.getAttribute("data-filter") || "all";
+        filterBtns.forEach((b) => b.classList.remove("bg-white", "text-black"));
+        filterBtns.forEach((b) => b.classList.add("bg-white/10"));
+        btn.classList.add("bg-white", "text-black");
+        btn.classList.remove("bg-white/10");
+        render();
+      });
+    });
+    if (q) q.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
