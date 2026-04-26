@@ -4,12 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Budy Global Corp</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
-<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" type="image/x-icon" href="img/favicon-16x16.png" />
+<link rel="shortcut icon" href="img/favicon-16x16.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
   :root { color-scheme: dark; }
+  body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1, h2, h3, .brand-font { font-family: "Space Grotesk", "Inter", system-ui, sans-serif; letter-spacing: -0.04em; }
   .fade-up {
     opacity: 0;
     transform: translateY(40px);
@@ -46,12 +51,16 @@
 
 <!-- NAVBAR -->
 <header class="fixed w-full z-50 glass ring-soft border-b border-white/10">
-  <nav class="max-w-7xl mx-auto flex justify-between items-center p-5">
-    <a href="index.html" class="flex items-center gap-3">
-      <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-soft">BG</span>
-      <span class="text-lg font-semibold tracking-wide">Budy Global Corp</span>
+  <nav class="max-w-7xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-4 p-5">
+    <a href="index.html" class="flex items-center gap-3 min-w-0">
+      <img src="img/budyglobalcorp-removebg-preview.png" alt="Logo Budy Global Corp" class="h-20 w-20 rounded-2xl object-contain bg-white/10 ring-soft p-1" onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+      <span class="brand-font text-lg font-semibold tracking-[-0.03em] truncate">Budy Global Corp</span>
     </a>
-    <button id="openMenu" class="ml-auto border border-white/15 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+    <div class="hidden md:flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs lg:text-sm text-white/70">
+      <a class="hover:text-white transition" href="tel:+17869352451">+1 (786) 935-2451</a>
+      <span>1717 N Bayshore Dr, 1939 · Miami, FL 33132</span>
+    </div>
+    <button id="openMenu" class="justify-self-end border border-white/15 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
       Menú
     </button>
   </nav>
@@ -74,11 +83,12 @@
     <a href="apple.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Apple</a>
     <a href="samsung.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Samsung</a>
     <a href="perfumes.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Perfumes</a>
+    <a href="marketing.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Marketing</a>
     <a href="contacto.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Contacto</a>
   </nav>
   <div class="mt-auto pt-6 border-t border-black/10 text-sm text-black/60">
     <div class="font-medium text-black/80">Budy Global Corp</div>
-    <div>Tecnología premium y fragancias exclusivas.</div>
+    <div>Tecnología premium, fragancias y marketing.</div>
   </div>
 </aside>
 
@@ -98,7 +108,7 @@
           <span class="h-1.5 w-1.5 rounded-full bg-white/70"></span>
           Selección premium
         </div>
-        <h1 class="mt-4 text-4xl md:text-6xl font-semibold leading-tight">
+        <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-[0.95] tracking-[-0.06em]">
           Budy Global Corp
           <span class="block text-white/70">lujo, tecnología y estilo.</span>
         </h1>
@@ -162,6 +172,15 @@
                 <div>
                   <div class="text-white font-semibold">Perfumes</div>
                   <div class="text-white/60 text-sm">Frescos, amaderados, lujo</div>
+                </div>
+                <div class="text-white/60 group-hover:text-white transition">→</div>
+              </div>
+            </a>
+            <a href="marketing.html" class="group rounded-2xl bg-black/40 ring-soft p-4 hover:bg-white/10 transition">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-white font-semibold">Marketing</div>
+                  <div class="text-white/60 text-sm">Campañas, contenido y presencia digital</div>
                 </div>
                 <div class="text-white/60 group-hover:text-white transition">→</div>
               </div>
@@ -235,7 +254,7 @@
       <p class="mt-2 text-white/60">Entrá a cada sección para ver catálogo premium con filtros y búsqueda.</p>
     </div>
 
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
+    <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       <a href="apple.html" class="fade-up group rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition card">
         <div class="p-6">
           <div class="text-sm text-white/60">Apple</div>
@@ -271,6 +290,64 @@
         </div>
         <img class="w-full h-56 object-cover opacity-90" alt="Perfumes" src="https://images.unsplash.com/photo-1519669011783-4eaa95fa1b7d?auto=format&fit=crop&w=1600&q=80" />
       </a>
+
+      <a href="marketing.html" class="fade-up group rounded-3xl bg-white/5 ring-soft overflow-hidden hover:bg-white/10 transition card">
+        <div class="p-6">
+          <div class="text-sm text-white/60">Marketing</div>
+          <div class="mt-1 text-2xl font-semibold">Crecimiento</div>
+          <p class="mt-2 text-white/60">Estrategia, contenido y campañas para marcas.</p>
+          <div class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white/80 group-hover:text-white transition">
+            Ver servicios <span aria-hidden="true">→</span>
+          </div>
+        </div>
+        <img class="w-full h-56 object-cover opacity-90" alt="Marketing digital" src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=1600&q=80" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="py-20 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-6 fade-up">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+          Marketing
+        </div>
+        <h2 class="mt-4 text-3xl md:text-4xl font-semibold">También impulsamos marcas con marketing digital.</h2>
+        <p class="mt-4 text-white/60 leading-relaxed">
+          Diseñamos estrategias de presencia online, contenido visual y campañas para que tu negocio comunique mejor, atraiga clientes y venda con más claridad.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="marketing.html" class="px-7 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.02] transition card text-center">
+            Ver marketing
+          </a>
+          <a href="contacto.html" class="px-7 py-3 rounded-xl bg-white/10 ring-soft hover:bg-white/15 transition text-center">
+            Cotizar servicio
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-6 fade-up">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="rounded-3xl bg-white/5 ring-soft p-6">
+            <div class="text-xl font-semibold">Estrategia</div>
+            <p class="mt-2 text-white/60 text-sm leading-relaxed">Plan de acción, objetivos, audiencias y propuesta de contenido.</p>
+          </div>
+          <div class="rounded-3xl bg-white/5 ring-soft p-6">
+            <div class="text-xl font-semibold">Contenido</div>
+            <p class="mt-2 text-white/60 text-sm leading-relaxed">Piezas para redes, copies y estética alineada a la marca.</p>
+          </div>
+          <div class="rounded-3xl bg-white/5 ring-soft p-6">
+            <div class="text-xl font-semibold">Campañas</div>
+            <p class="mt-2 text-white/60 text-sm leading-relaxed">Anuncios orientados a consultas, tráfico y conversión.</p>
+          </div>
+          <div class="rounded-3xl bg-white/5 ring-soft p-6">
+            <div class="text-xl font-semibold">Optimización</div>
+            <p class="mt-2 text-white/60 text-sm leading-relaxed">Seguimiento de resultados y mejoras según rendimiento.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -299,8 +376,13 @@
         <a class="hover:text-white transition" href="apple.html">Apple</a>
         <a class="hover:text-white transition" href="samsung.html">Samsung</a>
         <a class="hover:text-white transition" href="perfumes.html">Perfumes</a>
+        <a class="hover:text-white transition" href="marketing.html">Marketing</a>
         <a class="hover:text-white transition" href="contacto.html">Contacto</a>
       </div>
+    </div>
+    <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-white/50">
+      <a class="hover:text-white transition" href="tel:+17869352451">+1 (786) 935-2451</a>
+      <span>1717 N Bayshore Dr, 1939 · Miami, FL 33132</span>
     </div>
   </div>
 </footer>

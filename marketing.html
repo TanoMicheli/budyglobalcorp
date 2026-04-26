@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing | Budy Global Corp</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon-16x16.png" />
+  <link rel="shortcut icon" href="img/favicon-16x16.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    h1, h2, h3, .brand-font { font-family: "Space Grotesk", "Inter", system-ui, sans-serif; letter-spacing: -0.04em; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all .8s ease; }
+    .fade-up.active { opacity: 1; transform: translateY(0); }
+    .menu { transform: translateX(110%); transition: transform .35s ease; }
+    .menu.active { transform: translateX(0); }
+    .glass { background: rgba(15, 23, 42, .55); backdrop-filter: blur(14px); }
+    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset; }
+    .card { box-shadow: 0 30px 90px rgba(0,0,0,.35); }
+    .menu-backdrop { opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+    .menu-backdrop.active { opacity: 1; pointer-events: auto; }
+  </style>
+</head>
+
+<body class="bg-[#0b1220] text-white selection:bg-white selection:text-black">
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50 glass ring-soft border-b border-white/10">
+    <nav class="max-w-7xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-4 p-5">
+      <a href="index.html" class="flex items-center gap-3 min-w-0">
+        <img src="img/budyglobalcorp-removebg-preview.png" alt="Logo Budy Global Corp" class="h-20 w-20 rounded-2xl object-contain bg-white/10 ring-soft p-1" onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');" />
+        <span class="hidden inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 ring-soft brand-font text-sm">BG</span>
+        <span class="brand-font text-lg font-semibold tracking-[-0.03em] truncate">Budy Global Corp</span>
+      </a>
+      <div class="hidden md:flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs lg:text-sm text-white/70">
+        <a class="hover:text-white transition" href="tel:+17869352451">+1 (786) 935-2451</a>
+        <span>1717 N Bayshore Dr, 1939 · Miami, FL 33132</span>
+      </div>
+      <button id="openMenu" class="justify-self-end border border-white/15 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        Menú
+      </button>
+    </nav>
+  </header>
+
+  <!-- MENU BACKDROP -->
+  <div id="menuBackdrop" class="menu-backdrop fixed inset-0 bg-black/50 z-40" aria-hidden="true"></div>
+
+  <!-- MENU -->
+  <aside id="menu" class="menu fixed top-0 right-0 w-[22rem] max-w-[92vw] h-full bg-white text-black z-50 p-7 flex flex-col gap-6 shadow-[0_30px_120px_rgba(0,0,0,.55)] rounded-l-3xl">
+    <div class="flex items-center justify-between">
+      <div>
+        <div class="text-xs uppercase tracking-[0.22em] text-black/50">Menú</div>
+        <div class="font-semibold text-lg leading-tight">Budy Global Corp</div>
+      </div>
+      <button id="closeMenu" class="text-2xl leading-none hover:opacity-70 transition" aria-label="Cerrar menú">✕</button>
+    </div>
+    <nav class="mt-2 grid gap-2">
+      <a href="index.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Inicio</a>
+      <a href="apple.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Apple</a>
+      <a href="samsung.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Samsung</a>
+      <a href="perfumes.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Perfumes</a>
+      <a href="marketing.html" class="px-4 py-3 rounded-2xl bg-black text-white font-medium">Marketing</a>
+      <a href="contacto.html" class="px-4 py-3 rounded-2xl bg-black/5 hover:bg-black/10 transition font-medium">Contacto</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-black/10 text-sm text-black/60">
+      <div class="font-medium text-black/80">Budy Global Corp</div>
+      <div>Marketing, tecnología y productos premium.</div>
+    </div>
+  </aside>
+
+  <!-- HERO -->
+  <section class="relative pt-28 md:pt-32 overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=2400&q=80"
+        alt="Marketing digital"
+        class="w-full h-full object-cover opacity-55"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(34,211,238,.18),transparent_45%),radial-gradient(circle_at_80%_40%,rgba(168,85,247,.14),transparent_45%)]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-7 fade-up">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/70">
+            <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+            Marketing digital
+          </div>
+          <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-[0.95] tracking-[-0.06em]">
+            Marketing que convierte ideas en <span class="text-white/70">marcas memorables.</span>
+          </h1>
+          <p class="mt-5 text-white/70 max-w-2xl">
+            Creamos presencia digital para negocios que necesitan comunicar mejor, atraer clientes y convertir consultas en ventas.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#servicios" class="px-6 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.02] transition card text-center">
+              Ver servicios
+            </a>
+            <a href="contacto.html" class="px-6 py-3 rounded-xl bg-white/10 ring-soft hover:bg-white/15 transition text-center">
+              Cotizar marketing
+            </a>
+          </div>
+          <div class="mt-10 grid grid-cols-3 max-w-lg gap-4 text-sm">
+            <div class="rounded-2xl bg-white/5 ring-soft p-4">
+              <div class="text-white font-semibold">Estrategia</div>
+              <div class="text-white/60">Plan claro</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-soft p-4">
+              <div class="text-white font-semibold">Contenido</div>
+              <div class="text-white/60">Marca activa</div>
+            </div>
+            <div class="rounded-2xl bg-white/5 ring-soft p-4">
+              <div class="text-white font-semibold">Campañas</div>
+              <div class="text-white/60">Más consultas</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 fade-up">
+          <div class="rounded-3xl bg-white/5 ring-soft p-6 card">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-white/60">Servicio destacado</div>
+                <div class="text-xl font-semibold">Plan de presencia digital</div>
+              </div>
+              <div class="text-right text-sm text-white/60">Mensual</div>
+            </div>
+            <div class="mt-6 grid gap-3">
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="font-semibold">Diagnóstico de marca</div>
+                <div class="mt-1 text-sm text-white/60">Revisión de comunicación, perfil y oportunidades.</div>
+              </div>
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="font-semibold">Calendario de contenidos</div>
+                <div class="mt-1 text-sm text-white/60">Ideas, copies y piezas para redes sociales.</div>
+              </div>
+              <div class="rounded-2xl bg-black/40 ring-soft p-4">
+                <div class="font-semibold">Campañas y medición</div>
+                <div class="mt-1 text-sm text-white/60">Anuncios, objetivos y optimización periódica.</div>
+              </div>
+            </div>
+            <a href="contacto.html" class="mt-6 block text-center px-5 py-3 rounded-xl bg-white text-black font-medium hover:scale-[1.01] transition">
+              Solicitar propuesta
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-20 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-[-0.05em]">Servicios para acelerar tu presencia digital</h2>
+        <p class="mt-2 text-white/60">Soluciones para ordenar la comunicación y generar demanda.</p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="fade-up rounded-3xl bg-white/5 ring-soft p-7 hover:bg-white/10 hover:-translate-y-1 transition">
+          <div class="h-12 w-12 rounded-2xl bg-cyan-400/15 ring-soft flex items-center justify-center text-cyan-200">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M4 13a8 8 0 0 1 13-6l3-3v7h-7l2.5-2.5A5.5 5.5 0 0 0 6.5 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 11a8 8 0 0 1-13 6l-3 3v-7h7l-2.5 2.5A5.5 5.5 0 0 0 17.5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 text-2xl font-semibold">Estrategia digital</h3>
+          <p class="mt-3 text-white/60 leading-relaxed">Definimos objetivos, público, mensajes y acciones para que la marca tenga una dirección clara.</p>
+        </article>
+        <article class="fade-up rounded-3xl bg-white/5 ring-soft p-7 hover:bg-white/10 hover:-translate-y-1 transition">
+          <div class="h-12 w-12 rounded-2xl bg-purple-400/15 ring-soft flex items-center justify-center text-purple-200">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M4 6h16M4 12h10M4 18h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 text-2xl font-semibold">Gestión de redes</h3>
+          <p class="mt-3 text-white/60 leading-relaxed">Planificamos publicaciones, copies y piezas visuales para mantener una presencia consistente.</p>
+        </article>
+        <article class="fade-up rounded-3xl bg-white/5 ring-soft p-7 hover:bg-white/10 hover:-translate-y-1 transition">
+          <div class="h-12 w-12 rounded-2xl bg-blue-400/15 ring-soft flex items-center justify-center text-blue-200">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M4 13V8l10-3v14L4 16v-3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M18 9.5a3 3 0 0 1 0 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 text-2xl font-semibold">Publicidad online</h3>
+          <p class="mt-3 text-white/60 leading-relaxed">Armamos campañas enfocadas en tráfico, consultas, posicionamiento o conversión.</p>
+        </article>
+        <article class="fade-up rounded-3xl bg-white/5 ring-soft p-7 hover:bg-white/10 hover:-translate-y-1 transition">
+          <div class="h-12 w-12 rounded-2xl bg-pink-400/15 ring-soft flex items-center justify-center text-pink-200">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8.5 12h7M12 8.5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 text-2xl font-semibold">Branding y estética</h3>
+          <p class="mt-3 text-white/60 leading-relaxed">Ajustamos tono visual, mensajes y presentación para que la marca se vea profesional.</p>
+        </article>
+        <article class="fade-up rounded-3xl bg-white/5 ring-soft p-7 hover:bg-white/10 hover:-translate-y-1 transition">
+          <div class="h-12 w-12 rounded-2xl bg-amber-400/15 ring-soft flex items-center justify-center text-amber-200">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M5 4h14v16H5V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 text-2xl font-semibold">Contenido comercial</h3>
+          <p class="mt-3 text-white/60 leading-relaxed">Creamos textos y piezas orientadas a explicar productos, promociones y servicios.</p>
+        </article>
+        <article class="fade-up rounded-3xl bg-white/5 ring-soft p-7 hover:bg-white/10 hover:-translate-y-1 transition">
+          <div class="h-12 w-12 rounded-2xl bg-emerald-400/15 ring-soft flex items-center justify-center text-emerald-200">
+            <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true">
+              <path d="M4 18V6M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 15l3-3 3 2 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="mt-2 text-2xl font-semibold">Optimización</h3>
+          <p class="mt-3 text-white/60 leading-relaxed">Revisamos resultados y proponemos mejoras para invertir mejor el tiempo y el presupuesto.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="rounded-3xl bg-gradient-to-br from-cyan-500/20 via-white/6 to-purple-500/10 ring-soft p-8 md:p-10 fade-up card">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7">
+            <h3 class="text-2xl md:text-3xl font-bold tracking-[-0.05em]">Un proceso claro, medible y sin vueltas.</h3>
+            <p class="mt-2 text-white/65 max-w-2xl">
+              Primero entendemos el negocio, luego definimos el plan y finalmente ejecutamos con revisión constante.
+            </p>
+          </div>
+          <div class="md:col-span-5 grid gap-3 text-sm">
+            <div class="rounded-2xl bg-black/30 ring-soft p-4">1. Diagnóstico y objetivos</div>
+            <div class="rounded-2xl bg-black/30 ring-soft p-4">2. Plan de contenido y campañas</div>
+            <div class="rounded-2xl bg-black/30 ring-soft p-4">3. Medición, ajustes y crecimiento</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <div class="text-white/70 text-sm">Teléfono</div>
+          <a class="mt-1 block text-xl font-semibold hover:text-white/80 transition" href="tel:+17869352451">+1 (786) 935-2451</a>
+        </div>
+        <div class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <div class="text-white/70 text-sm">Dirección</div>
+          <div class="mt-1 text-xl font-semibold">1717 N Bayshore Dr, 1939</div>
+          <div class="text-white/60">Miami, FL 33132</div>
+        </div>
+        <div class="fade-up rounded-3xl bg-white/5 ring-soft p-6">
+          <div class="text-white/70 text-sm">Consulta</div>
+          <a class="mt-1 inline-flex text-xl font-semibold hover:text-white/80 transition" href="contacto.html">Escribir ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-white/45 text-sm border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>© 2026 Budy Global Corp</div>
+        <div class="flex items-center gap-5">
+          <a class="hover:text-white transition" href="index.html">Inicio</a>
+          <a class="hover:text-white transition" href="apple.html">Apple</a>
+          <a class="hover:text-white transition" href="samsung.html">Samsung</a>
+          <a class="hover:text-white transition" href="perfumes.html">Perfumes</a>
+          <a class="hover:text-white transition" href="contacto.html">Contacto</a>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-white/50">
+        <a class="hover:text-white transition" href="tel:+17869352451">+1 (786) 935-2451</a>
+        <span>1717 N Bayshore Dr, 1939 · Miami, FL 33132</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú lateral
+    const menu = document.getElementById("menu");
+    const openMenu = document.getElementById("openMenu");
+    const closeMenu = document.getElementById("closeMenu");
+    const backdrop = document.getElementById("menuBackdrop");
+    const body = document.body;
+
+    function openNav() {
+      if (!menu) return;
+      menu.classList.add("active");
+      if (backdrop) backdrop.classList.add("active");
+      body.classList.add("overflow-hidden");
+      if (openMenu) openMenu.setAttribute("aria-expanded", "true");
+    }
+
+    function closeNav() {
+      if (!menu) return;
+      menu.classList.remove("active");
+      if (backdrop) backdrop.classList.remove("active");
+      body.classList.remove("overflow-hidden");
+      if (openMenu) openMenu.setAttribute("aria-expanded", "false");
+    }
+
+    if (openMenu && closeMenu && menu) {
+      openMenu.onclick = openNav;
+      closeMenu.onclick = closeNav;
+      if (backdrop) backdrop.addEventListener("click", closeNav);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+    }
+
+    // Animación fade-up
+    const elements = document.querySelectorAll(".fade-up");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("active");
+        });
+      },
+      { threshold: 0.12 }
+    );
+    elements.forEach((el) => observer.observe(el));
+
+    // Scroll suave para anclas internas
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href");
+        if (!href || href.length < 2) return;
+        const el = document.querySelector(href);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
